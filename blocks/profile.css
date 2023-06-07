@@ -71,7 +71,7 @@
   border-color: #545454;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 876px) {
   .profile__info {
     display: grid;
     align-items: end;
@@ -104,7 +104,7 @@
     border: 2px white solid;
   }
 }
-@media screen and (max-width: 636px) {
+@media screen and (max-width: 620px) {
   .profile {
     flex-direction: column;
     max-width: 282px;
