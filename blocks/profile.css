@@ -71,7 +71,7 @@
   border-color: #545454;
 }
 
-@media screen and (max-width: 770) {
+@media screen and (max-width: 770px) {
   .profile__info {
     display: grid;
     align-items: end;
@@ -104,7 +104,7 @@
     border: 2px white solid;
   }
 }
-@media screen and (max-width: 636) {
+@media screen and (max-width: 636px) {
   .profile {
     flex-direction: column;
     max-width: 282px;
@@ -154,7 +154,7 @@
     margin-top: 36px;
   }
 }
-@media screen and (max-width: 320) {
+@media screen and (max-width: 320px) {
   .profile__image {
     margin: 0 auto;
   }
@@ -186,7 +186,6 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    align-items: center;
     column-gap: 10px;
     align-items: end;
     margin: 0 auto;

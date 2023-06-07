@@ -12,9 +12,7 @@
   color: #545454;
 }
 
-@media screen and (max-width: 770) {
-}
-@media screen and (max-width: 636) {
+@media screen and (max-width: 636px) {
   .footer__content {
     margin: 48px 19px 36px;
   }
@@ -24,7 +22,7 @@
     line-height: 17px;
   }
 }
-@media screen and (max-width: 320) {
+@media screen and (max-width: 320px) {
   .footer__content {
     display: flex;
     justify-content: flex-start;
