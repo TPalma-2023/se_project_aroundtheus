@@ -16,7 +16,7 @@
   min-height: 100vh;
 }
 
-@media screen and (max-width: 879px) {
+@media screen and (max-width: 876px) {
   .page__section {
     margin: 0 20px;
     max-width: calc(100% - 40px);
