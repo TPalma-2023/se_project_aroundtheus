@@ -1,0 +1,38 @@
+.footer__content {
+  margin-top: 67px;
+  margin-bottom: 60px;
+  max-width: 318px;
+  max-height: 18px;
+}
+
+.footer__text {
+  font-weight: 400px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+}
+
+@media screen and (max-width: 770) {
+}
+@media screen and (max-width: 636) {
+  .footer__content {
+    margin: 48px 19px 36px;
+  }
+
+  .footer__text {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+@media screen and (max-width: 320) {
+  .footer__content {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  .footer__text {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
