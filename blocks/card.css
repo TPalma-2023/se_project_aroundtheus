@@ -11,7 +11,6 @@
 }
 
 .card__title {
-  font-family: "Inter", Arial, serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
@@ -19,14 +18,14 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
+  max-width: 219px;
 }
 
 .card__description {
   display: flex;
   background-color: white;
   color: black;
-  padding: 25px 28px 25px 20px;
-  padding: 25px 20px 25px;
+  padding: 25px 20px;
   align-items: center;
   justify-content: space-between;
   border-bottom-left-radius: 10px;
@@ -42,5 +41,5 @@
 }
 
 .card__like-button:hover {
-  background: transparent url(../images/like-button-hover.svg) no-repeat center;
+  opacity: 0.6;
 }
