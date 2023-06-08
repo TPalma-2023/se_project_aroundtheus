@@ -19,6 +19,10 @@
   grid-area: title;
   margin: 0;
   padding-top: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 373px;
 }
 
 .profile__description {
