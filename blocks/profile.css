@@ -54,6 +54,7 @@
   margin-top: 37px;
   display: flex;
   border: 1px #fff solid;
+  cursor: pointer;
 }
 
 .profile__edit-button:hover {
@@ -70,6 +71,7 @@
   border: 2px white solid;
   border-radius: 2px;
   background-size: 22px 22px;
+  cursor: pointer;
 }
 
 .profile__add-button:hover {
@@ -141,6 +143,7 @@
     height: 18px;
     width: 18px;
     margin-top: auto;
+    margin-bottom: auto;
   }
 
   .profile__add-button {
@@ -158,9 +161,6 @@
   }
 
   .profile__description {
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
     margin: 14px auto 0;
   }
 
