@@ -26,7 +26,7 @@
 }
 
 .modal__heading {
-  max-width: 330px;
+  width: 100%;
   margin-bottom: 54px;
   font-weight: 900;
   font-size: 24px;
@@ -45,6 +45,10 @@
   bottom: calc(100% + 5px);
   left: calc(100% + 5px);
   cursor: pointer;
+}
+
+.modal__button-close:hover {
+  opacity: 0.6;
 }
 
 .modal__input {
@@ -73,6 +77,11 @@
   font-size: 18px;
   line-height: 22px;
   border-radius: 2px;
+  cursor: pointer;
+}
+
+.modal__button:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 620px) {

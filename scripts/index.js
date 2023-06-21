@@ -43,31 +43,33 @@ profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 
-  profileEditModal.classList.add("modal__opened");
+  openPopup();
 });
 
 function closePopup() {
   profileEditModal.classList.remove("modal__opened");
 }
 
+function openPopup() {
+  profileEditModal.classList.add("modal__opened");
+}
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
 
-  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardImageLinkEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
 
   cardTitleEl.textContent = cardData.name;
-  cardImageEl.textContent = cardData.link;
-  console.log(cardImageEl);
-  cardImageEl.src = cardImageEl.textContent;
-  cardImageEl.alt = cardTitleEl.textContent;
+  cardImageLinkEl.textContent = cardData.link;
+
+  cardImageLinkEl.src = cardImageLinkEl.textContent;
+  cardImageLinkEl.alt = cardTitleEl.textContent;
 
   return cardElement;
 }
 
-modalButtonClose.addEventListener("click", () => {
-  profileEditModal.classList.remove("modal__opened");
-});
+modalButtonClose.addEventListener("click", closePopup);
 
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
