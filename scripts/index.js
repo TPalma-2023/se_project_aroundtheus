@@ -61,10 +61,8 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
 
   cardTitleEl.textContent = cardData.name;
-  cardLinkEl.textContent = cardData.link;
-
-  cardLinkEl.src = cardLinkEl.textContent;
-  cardLinkEl.alt = cardTitleEl.textContent;
+  cardLinkEl.src = cardData.link;
+  cardLinkEl.alt = cardData.name;
 
   return cardElement;
 }
