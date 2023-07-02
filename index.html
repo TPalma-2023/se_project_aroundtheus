@@ -47,6 +47,7 @@
     <footer class="footer page__section">
       <p class="footer__text">@ 2022 Around The U.S.</p>
     </footer>
+    <!-- Edit Profile Modal -->
     <div class="modal page__section" id="profile-edit-modal">
       <div class="modal__container">
         <button type="button" class="modal__button-close"></button>
@@ -65,6 +66,30 @@
             name="description"
             id="profile-description-input"
             placeholder="description"
+          />
+          <button type="submit" class="button modal__button">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- Add Card Modal -->
+    <div class="modal page__section" id="add-card-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__button-close"></button>
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form" id="add-card-form">
+          <input
+            class="modal__input modal__input_type_title"
+            type="text"
+            name="title"
+            id="profile-title-input"
+            placeholder="title"
+          />
+          <input
+            class="modal__input modal__input_type_url"
+            type="text"
+            name="url"
+            id="profile-description-input"
+            placeholder="image"
           />
           <button type="submit" class="button modal__button">Save</button>
         </form>

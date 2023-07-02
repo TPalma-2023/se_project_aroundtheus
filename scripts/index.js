@@ -25,9 +25,14 @@ const initialCards = [
   },
 ];
 
+// Variables
 const profileEditModal = document.querySelector("#profile-edit-modal");
+const addCardModal = document.querySelector("#add-card-modal");
 const profileEditButton = document.querySelector(".profile__edit-button");
-const modalButtonClose = document.querySelector(".modal__button-close");
+const profileModalCloseButton = profileEditModal.querySelector(
+  ".modal__button-close"
+);
+const addCardCloseButton = addCardModal.querySelector(".modal__button-close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -38,20 +43,20 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardListEl = document.querySelector(".cards__list");
+const addNewCardButton = document.querySelector(".profile__add-button");
 
 profileEditButton.addEventListener("click", () => {
+  openPopup(profileEditModal);
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-
-  openPopup();
 });
 
-function closePopup() {
-  profileEditModal.classList.remove("modal__opened");
+function closePopup(modal) {
+  modal.classList.remove("modal__opened");
 }
 
-function openPopup() {
-  profileEditModal.classList.add("modal__opened");
+function openPopup(modal) {
+  modal.classList.add("modal__opened");
 }
 
 function getCardElement(cardData) {
@@ -67,16 +72,20 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-modalButtonClose.addEventListener("click", closePopup);
+profileModalCloseButton.addEventListener("click", () =>
+  closePopup(profileEditModal)
+);
+addNewCardButton.addEventListener("click", () => openPopup(addCardModal));
+addCardCloseButton.addEventListener("click", () => closePopup(addCardModal));
 
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
+  closePopup(profileEditModal);
 });
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  cardListEl.append(cardElement);
 });
