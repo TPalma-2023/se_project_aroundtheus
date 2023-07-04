@@ -99,8 +99,6 @@ function getCardElement(cardData) {
     imageModalEl.src = cardData.link;
     imageModalEl.alt = cardData.name;
     imageCaption.textContent = cardData.name;
-    console.log(imageCaption);
-    console.log(imageCaption.textContent);
   });
 
   return cardElement;
