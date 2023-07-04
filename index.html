@@ -47,6 +47,16 @@
     <footer class="footer page__section">
       <p class="footer__text">@ 2022 Around The U.S.</p>
     </footer>
+
+    <!-- View Picture Modal -->
+    <div class="modal" id="image-modal">
+      <div class="modal__container modal__container_type_image">
+        <button type="button" class="modal__button-close"></button>
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
+
     <!-- Edit Profile Modal -->
     <div class="modal page__section" id="profile-edit-modal">
       <div class="modal__container">
@@ -97,6 +107,7 @@
     </div>
     <template id="card-template">
       <li class="card">
+        <button type="button" class="card__remove-button"></button>
         <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__title"></h2>
