@@ -117,6 +117,9 @@ function handleAddCardFormSubmit(evt) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   closePopup(addCardModal);
+
+  const addCardFormEl = document.querySelector("#add-card-form");
+  addCardFormEl.reset();
 }
 
 profileModalCloseButton.addEventListener("click", () =>
