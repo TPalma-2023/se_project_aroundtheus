@@ -118,13 +118,13 @@
   margin: 0;
 }
 
-.popup__button_disabled {
+.modal__button_disabled {
   opacity: 0.2;
   background: white;
   color: black;
 }
 
-.popup__error {
+.modal__error {
   color: red;
   font-size: 12px;
   line-height: 14.5px;

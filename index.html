@@ -62,10 +62,10 @@
       <div class="modal__container">
         <button type="button" class="modal__button-close"></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form popup__form">
-          <label class="popup__label">
+        <form class="modal__form">
+          <label class="modal__label">
             <input
-              class="modal__input popup__input"
+              class="modal__input"
               type="text"
               name="title"
               id="profile-title-input"
@@ -74,9 +74,9 @@
               minlength="2"
               maxlength="40"
             />
-            <span class="popup__error" id="profile-title-input-error"></span>
+            <span class="modal__error" id="profile-title-input-error"></span>
           </label>
-          <label class="popup__label">
+          <label class="modal__label">
             <input
               class="modal__input popup__input"
               type="text"
@@ -88,13 +88,11 @@
               maxlength="200"
             />
             <span
-              class="popup__error"
+              class="modal__error"
               id="profile-description-input-error"
             ></span>
           </label>
-          <button type="submit" class="button modal__button popup__button">
-            Save
-          </button>
+          <button type="submit" class="button modal__button">Save</button>
         </form>
       </div>
     </div>
@@ -103,9 +101,9 @@
       <div class="modal__container">
         <button type="button" class="modal__button-close"></button>
         <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form popup__form" id="add-card-form">
+        <form class="modal__form" id="add-card-form">
           <input
-            class="modal__input modal__input_type_title popup__input"
+            class="modal__input modal__input_type_title"
             type="text"
             name="title"
             id="new-card-title-input"
@@ -117,16 +115,16 @@
           />
           <span class="popup__error" id="new-card-title-input-error"></span>
           <input
-            class="modal__input modal__input_type_url popup__input"
+            class="modal__input modal__input_type_url"
             type="url"
             name="url"
             id="new-card-url-input"
             placeholder="image"
           />
-          <span class="popup__error" id="new-card-url-input-error"></span>
+          <span class="modal__error" id="new-card-url-input-error"></span>
           <button
             type="submit"
-            class="button modal__button popup__button popup__button_disabled"
+            class="button modal__button modal__button_disabled"
             disabled="true"
           >
             Save
