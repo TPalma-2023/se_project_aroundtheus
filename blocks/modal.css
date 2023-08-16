@@ -72,7 +72,7 @@
   margin-top: 0;
 }
 
-.modal__input:invalid {
+.modal__input_type_error {
   border-bottom: 1px solid red;
 }
 
@@ -87,10 +87,18 @@
   line-height: 22px;
   border-radius: 2px;
   cursor: pointer;
+  border: none;
 }
 
-.modal__button:hover {
+.modal__button:hover:not(:disabled) {
   opacity: 0.8;
+}
+
+.modal__button_disabled {
+  opacity: 0.2;
+  background: white;
+  color: black;
+  cursor: default;
 }
 
 .modal__container_type_image {
@@ -116,12 +124,6 @@
   position: absolute;
   top: calc(100% + 10px);
   margin: 0;
-}
-
-.modal__button_disabled {
-  opacity: 0.2;
-  background: white;
-  color: black;
 }
 
 .modal__error {

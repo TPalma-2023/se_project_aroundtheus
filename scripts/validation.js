@@ -26,33 +26,29 @@ function checkInputValidity(formEl, inputEl, options) {
   hideInputError(formEl, inputEl, options);
 }
 
-function disableButton(inputEls, submitButton, inactiveButtonClass) {
-  if (hasInvalidInput(inputEls)) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
-    return;
-  }
+function disableButton(submitButton, inactiveButtonClass) {
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
 }
 
-function enableButton(inputEls, submitButton, inactiveButtonClass) {
-  if (!hasInvalidInput([...inputEls])) {
-    submitButton.classList.remove(inactiveButtonClass);
-    submitButton.disabled = false;
-  }
+function enableButton(submitButton, inactiveButtonClass) {
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
 }
 
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
   if (hasInvalidInput(inputEls)) {
-    disableButton(inputEls, submitButton, inactiveButtonClass);
+    disableButton(submitButton, inactiveButtonClass);
     return;
   }
-  enableButton(inputEls, submitButton, inactiveButtonClass);
+  enableButton(submitButton, inactiveButtonClass);
 }
 
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
+  const { submitButtonSelector } = options;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  const submitButton = formEl.querySelector(".modal__button");
+  const submitButton = formEl.querySelector(submitButtonSelector);
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, options);
@@ -81,24 +77,3 @@ const config = {
 };
 
 enableValidation(config);
-
-const openedModal = document.querySelectorAll(".modal__container");
-
-document.addEventListener("click", (evt) => {
-  let clickClass = evt.target.classList;
-  let clickEl = evt.target;
-
-  clickClass.forEach((e) => {
-    if (e == "modal__opened") {
-      clickEl.classList.remove("modal__opened");
-    }
-  });
-});
-
-document.addEventListener("keydown", (evt) => {
-  if (evt.key == "Escape") {
-    closePopup(profileEditModal);
-    closePopup(addCardModal);
-    closePopup(modalImage);
-  }
-});
