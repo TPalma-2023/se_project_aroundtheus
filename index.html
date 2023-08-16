@@ -62,22 +62,39 @@
       <div class="modal__container">
         <button type="button" class="modal__button-close"></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form">
-          <input
-            class="modal__input"
-            type="text"
-            name="title"
-            id="profile-title-input"
-            placeholder="Name"
-          />
-          <input
-            class="modal__input"
-            type="text"
-            name="description"
-            id="profile-description-input"
-            placeholder="description"
-          />
-          <button type="submit" class="button modal__button">Save</button>
+        <form class="modal__form popup__form">
+          <label class="popup__label">
+            <input
+              class="modal__input popup__input"
+              type="text"
+              name="title"
+              id="profile-title-input"
+              placeholder="name"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="popup__error" id="profile-title-input-error"></span>
+          </label>
+          <label class="popup__label">
+            <input
+              class="modal__input popup__input"
+              type="text"
+              name="description"
+              id="profile-description-input"
+              placeholder="description"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span
+              class="popup__error"
+              id="profile-description-input-error"
+            ></span>
+          </label>
+          <button type="submit" class="button modal__button popup__button">
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -86,22 +103,34 @@
       <div class="modal__container">
         <button type="button" class="modal__button-close"></button>
         <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form" id="add-card-form">
+        <form class="modal__form popup__form" id="add-card-form">
           <input
-            class="modal__input modal__input_type_title"
+            class="modal__input modal__input_type_title popup__input"
             type="text"
             name="title"
             id="new-card-title-input"
             placeholder="title"
+            required
+            minlength="1"
+            maxlength="30"
+            valid="true"
           />
+          <span class="popup__error" id="new-card-title-input-error"></span>
           <input
-            class="modal__input modal__input_type_url"
+            class="modal__input modal__input_type_url popup__input"
             type="url"
             name="url"
             id="new-card-url-input"
             placeholder="image"
           />
-          <button type="submit" class="button modal__button">Save</button>
+          <span class="popup__error" id="new-card-url-input-error"></span>
+          <button
+            type="submit"
+            class="button modal__button popup__button popup__button_disabled"
+            disabled="true"
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -116,5 +145,6 @@
       </li>
     </template>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </body>
 </html>

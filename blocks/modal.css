@@ -72,6 +72,10 @@
   margin-top: 0;
 }
 
+.modal__input:invalid {
+  border-bottom: 1px solid red;
+}
+
 .modal__button {
   margin-top: 48px;
   width: 100%;
@@ -112,6 +116,19 @@
   position: absolute;
   top: calc(100% + 10px);
   margin: 0;
+}
+
+.popup__button_disabled {
+  opacity: 0.2;
+  background: white;
+  color: black;
+}
+
+.popup__error {
+  color: red;
+  font-size: 12px;
+  line-height: 14.5px;
+  padding-top: 10px;
 }
 
 @media screen and (max-width: 620px) {
