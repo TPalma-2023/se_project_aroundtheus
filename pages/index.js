@@ -1,3 +1,7 @@
+import card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Utils from "../utils/utils.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -149,3 +153,18 @@ document.addEventListener("mousedown", (evt) => {
     closePopup(evt.target);
   }
 });
+
+const selectors = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormValidator = new FormValidator(selectors, profileEditModal);
+const addFormValidator = new FormValidator(selectors, addCardModal);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
