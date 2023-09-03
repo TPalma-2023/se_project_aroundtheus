@@ -27,11 +27,9 @@ export default class Card {
         this._handleDeleteButton();
       });
 
-    this._element
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        this._handleOpenModal(this._name, this._link);
-      });
+    this._cardImage.addEventListener("click", () => {
+      this._handleOpenModal(this._name, this._link);
+    });
   }
 
   _handleLikeButton() {

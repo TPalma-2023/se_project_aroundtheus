@@ -85,10 +85,6 @@ function handleAddCardFormSubmit(evt) {
 
   const addCardFormEl = document.querySelector("#add-card-form");
   addCardFormEl.reset();
-  addCardFormEl.querySelector(".button").disable;
-  addCardFormEl
-    .querySelector(".button")
-    .classList.add("modal__button_disabled");
 }
 
 profileModalCloseButton.addEventListener("click", () =>
@@ -104,7 +100,6 @@ modalImageCloseButton.addEventListener("click", () => closePopup(modalImage));
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 function _handleOpenModal(name, link) {
-  const modalImage = document.querySelector("#image-modal");
   const imageModalEl = modalImage.querySelector(".modal__image");
   const imageCaption = modalImage.querySelector(".modal__caption");
   imageModalEl.alt = name;
@@ -113,12 +108,6 @@ function _handleOpenModal(name, link) {
 
   openPopup(modalImage);
 }
-
-document.addEventListener("mousedown", (evt) => {
-  if (evt.target.classList.contains("modal_opened")) {
-    closePopup(evt.target);
-  }
-});
 
 const selectors = {
   formSelector: ".modal__form",
@@ -129,16 +118,8 @@ const selectors = {
   errorClass: "modal__error_visible",
 };
 
-const editFormValidator = new FormValidator(
-  selectors,
-  profileEditModal,
-  _handleOpenModal
-);
-const addFormValidator = new FormValidator(
-  selectors,
-  addCardModal,
-  _handleOpenModal
-);
+const editFormValidator = new FormValidator(selectors, profileEditModal);
+const addFormValidator = new FormValidator(selectors, addCardModal);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
