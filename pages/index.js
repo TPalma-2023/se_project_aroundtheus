@@ -85,11 +85,22 @@ function handleAddCardFormSubmit(evt) {
 
   const addCardFormEl = document.querySelector("#add-card-form");
   addCardFormEl.reset();
+  const cardSubmitButton = document
+    .querySelector("#add-card-modal")
+    .querySelector(".modal__button");
+  cardSubmitButton.classList.add("modal__button_disabled");
 }
 
 profileModalCloseButton.addEventListener("click", () =>
   closePopup(profileEditModal)
 );
+
+function exitModalByClick(e) {
+  if (e.target.classList.contains("modal")) {
+    const modal = document.querySelector(".modal_opened");
+    closePopup(modal);
+  }
+}
 
 addNewCardButton.addEventListener("click", () => openPopup(addCardModal));
 addCardCloseButton.addEventListener("click", () => closePopup(addCardModal));
@@ -124,4 +135,4 @@ const addFormValidator = new FormValidator(selectors, addCardModal);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-export { _handleOpenModal };
+export { _handleOpenModal, exitModalByClick };
