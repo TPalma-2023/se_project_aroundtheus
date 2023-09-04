@@ -84,7 +84,7 @@ function handleAddCardFormSubmit(evt) {
   closePopup(addCardModal);
 
   cardAddFormElement.reset();
-  addFormValidator.submitButtonDisable();
+  addFormValidator.disableSubmitButton();
 }
 
 profileModalCloseButton.addEventListener("click", () =>
