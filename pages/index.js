@@ -1,7 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import { openPopup, closePopup } from "../utils/utils.js";
-import { submitButtonDisable } from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -85,11 +84,7 @@ function handleAddCardFormSubmit(evt) {
   closePopup(addCardModal);
 
   cardAddFormElement.reset();
-  // const cardSubmitButton = document
-  //   .querySelector("#add-card-modal")
-  //   .querySelector(".modal__button");
-  // cardSubmitButton.classList.add("modal__button_disabled");
-  submitButtonDisable();
+  addFormValidator.submitButtonDisable();
 }
 
 profileModalCloseButton.addEventListener("click", () =>
