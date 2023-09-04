@@ -69,3 +69,12 @@ export default class FormValidator {
     this._setEventListeners();
   }
 }
+
+function submitButtonDisable() {
+  const cardSubmitButton = document
+    .querySelector("#add-card-modal")
+    .querySelector(".modal__button");
+  cardSubmitButton.classList.add("modal__button_disabled");
+}
+
+export { submitButtonDisable };

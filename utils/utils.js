@@ -14,9 +14,6 @@ function openPopup(modal) {
 }
 
 function closePopup(modal) {
-  if (modal == "#add-card-modal") {
-    modal.querySelector("modal__button").disable = true;
-  }
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalByEscape);
   document.removeEventListener("click", exitModalByClick);

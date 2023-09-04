@@ -1,6 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import { openPopup, closePopup } from "../utils/utils.js";
+import { submitButtonDisable } from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -83,12 +84,12 @@ function handleAddCardFormSubmit(evt) {
   renderCard({ name, link }, cardListEl);
   closePopup(addCardModal);
 
-  const addCardFormEl = document.querySelector("#add-card-form");
-  addCardFormEl.reset();
-  const cardSubmitButton = document
-    .querySelector("#add-card-modal")
-    .querySelector(".modal__button");
-  cardSubmitButton.classList.add("modal__button_disabled");
+  cardAddFormElement.reset();
+  // const cardSubmitButton = document
+  //   .querySelector("#add-card-modal")
+  //   .querySelector(".modal__button");
+  // cardSubmitButton.classList.add("modal__button_disabled");
+  submitButtonDisable();
 }
 
 profileModalCloseButton.addEventListener("click", () =>
@@ -97,8 +98,7 @@ profileModalCloseButton.addEventListener("click", () =>
 
 function exitModalByClick(e) {
   if (e.target.classList.contains("modal")) {
-    const modal = document.querySelector(".modal_opened");
-    closePopup(modal);
+    closePopup(e.target);
   }
 }
 

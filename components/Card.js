@@ -50,6 +50,7 @@ export default class Card {
     this._cardTitle = this._element.querySelector(".card__title");
 
     this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
     this._cardTitle.textContent = this._name;
 
     this._setEventListeners();
