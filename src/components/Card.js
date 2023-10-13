@@ -1,11 +1,9 @@
-import { _handleOpenModal } from "../pages/index.js";
-
 export default class Card {
-  constructor(data, cardSelector, handleOpenModal) {
+  constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._handleOpenModal = handleOpenModal;
+    this._handleCardClick = handleImageClick;
   }
 
   _getTemplate() {
@@ -28,7 +26,7 @@ export default class Card {
       });
 
     this._cardImage.addEventListener("click", () => {
-      this._handleOpenModal(this._name, this._link);
+      this._handleCardClick({ name: this._name, link: this._link });
     });
   }
 

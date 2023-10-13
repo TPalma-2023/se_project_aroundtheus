@@ -63,6 +63,15 @@ export default class FormValidator {
     }
   }
 
+  handleAddCardModalOpen(isModalOpen) {
+    const submitButton = this._form.querySelector(this._submitButtonSelector);
+    if (isModalOpen) {
+      this.disableSubmitButton(submitButton);
+    } else {
+      this.enableSubmitButton(submitButton);
+    }
+  }
+
   enableValidation() {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
