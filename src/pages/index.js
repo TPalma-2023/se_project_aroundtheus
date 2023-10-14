@@ -71,6 +71,7 @@ profileEditButton.addEventListener("click", () => {
 });
 
 addNewCardButton.addEventListener("click", () => {
+  addFormValidator._disableSubmitButton();
   addCardImageModal.open();
 });
 
@@ -101,7 +102,6 @@ function handleAddCardSubmit(data) {
     const newCardEl = renderCard(newCard);
 
     section.addItem(newCardEl);
-    addFormValidator._disableAfterSubmission();
   }
 }
 

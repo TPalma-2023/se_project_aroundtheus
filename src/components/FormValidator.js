@@ -37,7 +37,6 @@ export default class FormValidator {
 
   _setEventListeners() {
     const inputEls = [...this._form.querySelectorAll(this._inputSelector)];
-
     const submitButton = this._form.querySelector(this._submitButtonSelector);
 
     inputEls.forEach((inputEl) => {
@@ -53,7 +52,6 @@ export default class FormValidator {
   }
 
   _toggleButtonState(inputList, _buttonElement, _inactiveButtonClass) {
-    _buttonElement.classList.add(this._inactiveButtonClass);
     _buttonElement.disabled = true;
     if (this._hasInvalidInput(inputList)) {
       this.disableSubmitButton();
@@ -63,14 +61,6 @@ export default class FormValidator {
     }
   }
 
-  _disableAfterSubmission() {
-    this._addCardSubmitButton = document
-      .querySelector("#add-card-form")
-      .querySelector(".modal__button");
-
-    this._addCardSubmitButton.classList.add("modal__button_disabled");
-  }
-
   enableValidation() {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -78,7 +68,7 @@ export default class FormValidator {
     this._setEventListeners();
   }
 
-  disableSubmitButton() {
+  _disableSubmitButton() {
     const submitButton = this._form.querySelector(this._submitButtonSelector);
     submitButton.classList.add(this._inactiveButtonClass);
     submitButton.disabled = true;
