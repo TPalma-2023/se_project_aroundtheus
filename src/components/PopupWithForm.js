@@ -7,17 +7,11 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
     this._inputEls = [...this._modalForm.querySelectorAll(".modal__input")];
     this._inputValues = {};
-    this._addCardSubmitButton = document
-      .querySelector("#add-card-form")
-      .querySelector(".modal__button");
   }
 
   close() {
     this._modalForm.reset();
     super.close();
-    if (this._modalForm.id === "add-card-form") {
-      this._addCardSubmitButton.classList.add("modal__button_disabled");
-    }
   }
 
   _getInputValues() {
