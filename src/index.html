@@ -23,11 +23,15 @@
     </header>
     <main class="page__content">
       <section class="profile page__section">
-        <img
-          src="<%= require('./images/jacques-cousteau.jpg')%>"
-          alt="image of jacques cousteau"
-          class="profile__image"
-        />
+        <div class="profile__image-container">
+          <img
+            src="<%= require('./images/jacques-cousteau.jpg')%>"
+            alt="image of jacques cousteau"
+            class="profile__image"
+          />
+
+          <button type="button" class="profile__image-button"></button>
+        </div>
         <div class="profile__info">
           <h1 class="profile__title">Jacques Cousteau</h1>
           <button
@@ -47,7 +51,7 @@
       <p class="footer__text">@ 2022 Around The U.S.</p>
     </footer>
 
-    <!-- View Picture Modal -->
+    <!-- ------------------------- View Picture Modal -------------------------- -->
     <div class="modal" id="image-modal">
       <div class="modal__container modal__container_type_image">
         <button type="button" class="modal__button-close"></button>
@@ -56,7 +60,7 @@
       </div>
     </div>
 
-    <!-- Edit Profile Modal -->
+    <!-- ------------------------- Edit Profile Modal -------------------------- -->
     <div class="modal page__section" id="profile-edit-modal">
       <div class="modal__container">
         <button type="button" class="modal__button-close"></button>
@@ -95,7 +99,7 @@
         </form>
       </div>
     </div>
-    <!-- Add Card Modal -->
+    <!-- --------------------------- Add Card Modal ---------------------------- -->
     <div class="modal page__section" id="add-card-modal">
       <div class="modal__container">
         <button type="button" class="modal__button-close"></button>
@@ -131,6 +135,55 @@
         </form>
       </div>
     </div>
+    <!-- -------------------------- Delete Card Modal -------------------------- -->
+    <div>
+      <div class="modal page__section" id="delete-card-modal">
+        <div class="modal__container modal__container_type_delete">
+          <button type="button" class="modal__button-close"></button>
+          <form class="modal__form">
+            <h2 class="modal__heading modal__heading_delete-modal">
+              Are you Sure?
+            </h2>
+            <button
+              type="submit"
+              class="button modal__button modal__button-delete"
+            >
+              Yes
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- --------------------- Edit Profile Picture Modal ---------------------- -->
+    <div>
+      <div class="modal page__section" id="edit-profile-picture">
+        <div class="modal__container modal__container_profile-picture">
+          <button type="button" class="modal__button-close"></button>
+          <h2 class="modal__heading modal__heading_profile-picture">
+            Change profile picture
+          </h2>
+          <form class="modal__form">
+            <input
+              class="modal__input modal__input_type_url"
+              type="url"
+              name="url"
+              id="profile-url-input"
+              placeholder="image"
+              required
+            />
+            <span class="modal__error" id="profile-url-input-error"></span>
+            <button
+              type="submit"
+              class="button modal__button modal__button_disabled"
+              disabled
+            >
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------- Card Template ---------------------------- -->
     <template id="card-template">
       <li class="card">
         <button type="button" class="card__remove-button"></button>
