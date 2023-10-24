@@ -174,15 +174,12 @@ function handleAddCardSubmit(data) {
 }
 
 function handleCardLike(data) {
-  console.log(data);
   const isLiked = data.isLiked();
   const cardId = data.getId();
-  console.log("card Id: ", cardId);
-  console.log("is liked: ", isLiked);
+
   api
     .toggleCardLike(cardId, isLiked)
     .then((updatedData) => {
-      console.log("updated data: ", updatedData);
       data.setLikes(updatedData.isLiked);
     })
     .catch((err) => {
@@ -191,7 +188,7 @@ function handleCardLike(data) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                  PopupWithForm and PopupWithImageinstances                 */
+/*                  PopupWithForm, PopupWithImage, PopupFormSubmit instances  */
 /* -------------------------------------------------------------------------- */
 
 const editProfilePicture = new PopupWithForm(
@@ -281,107 +278,3 @@ Promise.all([api.loadInitialProfileData(), api.getInitialCards()])
   .catch((error) => {
     console.error(error);
   });
-
-// api
-//   .loadInitialCards()
-//   .then((cardsData) => {
-//     renderCard(cardsData);
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   });
-
-/* -------------------------------- API Calls ------------------------------- */
-
-// api.loadInitialProfileData().then((profileData) => {
-//   renderProfileData(profileData);
-// });
-// const renderProfileData = (profileData) => {
-//   profileTitle.textContent = profileData.name;
-//   profileDescription.textContent = profileData.about;
-// };
-// api
-//   .getInitialCards()
-//   .then((results) => {
-//     console.log(results);
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   });
-
-// api
-//   .loadInitialCards()
-//   .then((results) => {
-//     console.log(results);
-//   })
-//   .catch((error) => {
-//     console.errror(error);
-//   });
-
-// api.editProfileData();
-
-// api
-//   .getInitialCards()
-//   .then((results) => {
-//     console.log(results);
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   });
-
-// const newCardsd = {
-//   name: "Toams",
-//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-// };
-// api.addNewCard(newCardsd);
-
-// api
-//   .loadInitialCards()
-//   .then((results) => {
-//     console.log(results);
-//   })
-//   .catch((error) => {
-//     console.errror(error);
-//   });
-
-// const section = new Section(
-//   {
-//     items: initialCards,
-//     renderer: (item) => {
-//       const cardElement = renderCard(item);
-//       section.addItem(cardElement);
-//     },
-//   },
-//   ".cards__list"
-// );
-// section.renderItems();
-// function handleAddCardSubmit(data) {
-//   addCardImageModal.setSubmitText(true);
-//   console.log(data);
-//   const name = data.title;
-//   const link = data.url;
-
-//   if (name && link) {
-//     const newCard = {
-//       name: name,
-//       link: link,
-//     };
-
-//     api
-//       .createNewCard(newCard)
-//       .then((data) => {
-//         renderCard(data);
-//         addCardImageModal.close();
-//       })
-//       .catch((err) => {
-//         console.error(err);
-//       })
-//       .finally(() => addCardImageModal.setSubmitText(false));
-
-//     // console.log(JSON.stringify(newCard));
-//     // api.addNewCard(newCard);
-//     // const newCardEl = renderCard(newCard);
-//     // console.log(newCardEl);
-//     // section.addItem(newCardEl);
-//   }
-// }
