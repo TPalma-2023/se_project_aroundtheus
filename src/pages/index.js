@@ -96,13 +96,15 @@ function handleEditProfileSubmit(formData) {
 }
 
 function handleEditProfilePictureSubmit(data) {
+  editProfilePicture.setSubmitText(true);
   api
     .updateProfilePicture(data.url)
-    .then(() => {
-      profilePictureImage.src = data.url;
+    .then(userInfo.setUserProfilePicture(data.url))
+    .catch(console.error)
+    .finally(() => {
       editProfilePicture.close();
-    })
-    .catch(console.error);
+      editProfilePicture.setSubmitText(false);
+    });
 }
 
 function handleImageClick(data) {
@@ -117,7 +119,7 @@ function handleRemoveCard(data) {
       .deleteNewCard(data._id)
       .then(() => {
         removeCardModal.close();
-        data._handleDeleteButton();
+        data.handleDeleteButton();
       })
       .catch(console.error)
       .finally(() => removeCardModal.setSubmitText(false));
