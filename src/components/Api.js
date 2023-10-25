@@ -1,72 +1,48 @@
 export default class Api {
-  constructor() {}
+  constructor({ baseUrl, headers }) {
+    this._baseUrl = baseUrl;
+    this._headers = headers;
+  }
+
+  _checkServerResponse(res) {
+    if (res.ok) {
+      return res.json();
+    } else Promise.reject(res.status);
+  }
 
   getInitialCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
-      headers: {
-        authorization: "675ffc74-7010-43d4-a4e4-01622ad8dbf1",
-      },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    return fetch(`${this._baseUrl}/cards`, {
+      headers: this._headers,
+    }).then(this._checkServerResponse);
   }
 
   addNewCard(newCardData) {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: {
-        authorization: "675ffc74-7010-43d4-a4e4-01622ad8dbf1",
-        "Content-Type": "application/json",
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: newCardData.name,
         link: newCardData.link,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkServerResponse);
   }
 
   deleteNewCard(cardId) {
-    return fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}`,
-      {
-        method: "DELETE",
-        headers: {
-          authorization: "675ffc74-7010-43d4-a4e4-01622ad8dbf1",
-        },
-      }
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
-        return response.json();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkServerResponse);
   }
 
   editProfileData(data) {
-    return fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: {
-        authorization: "675ffc74-7010-43d4-a4e4-01622ad8dbf1",
-        "Content-Type": "application/json",
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: data.title,
         about: data.description,
       }),
-    });
+    }).then(this._checkServerResponse);
   }
 
   toggleCardLike(cardId, isLiked) {
@@ -76,73 +52,33 @@ export default class Api {
     } else {
       method = "PUT";
     }
-    return fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
-      {
-        method,
-        headers: {
-          authorization: "675ffc74-7010-43d4-a4e4-01622ad8dbf1",
-        },
-      }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method,
+      headers: this._headers,
+    }).then(this._checkServerResponse);
   }
 
   updateProfilePicture(picLink) {
     const data = {
       avatar: picLink,
     };
-    return fetch(
-      "https://around-api.en.tripleten-services.com/v1/users/me/avatar",
-      {
-        method: "PATCH",
-        headers: {
-          authorization: "675ffc74-7010-43d4-a4e4-01622ad8dbf1",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: %{res.status}`);
-    });
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify(data),
+    }).then(this._checkServerResponse);
   }
 
   loadInitialCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
-      headers: {
-        authorization: "675ffc74-7010-43d4-a4e4-01622ad8dbf1",
-      },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    return fetch(`${this._baseUrl}/cards`, {
+      headers: this._headers,
+    }).then(this._checkServerResponse);
   }
 
   loadInitialProfileData() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
-      headers: {
-        authorization: "675ffc74-7010-43d4-a4e4-01622ad8dbf1",
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
-      .then((profileData) => {
-        return profileData;
-      });
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+    }).then(this._checkServerResponse);
   }
 }
 

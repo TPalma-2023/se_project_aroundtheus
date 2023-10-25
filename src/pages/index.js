@@ -103,9 +103,6 @@ function handleEditProfileSubmit(formData) {
   modalEditForm.setSubmitText(true);
   api
     .editProfileData(formData)
-    .then((response) => {
-      return response.json();
-    })
     .then((data) => {
       userInfo.setUserInfo(data);
       modalEditForm.close();
