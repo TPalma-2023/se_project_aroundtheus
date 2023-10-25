@@ -6,7 +6,7 @@ export default class UserInfo {
   ) {
     this._userNameEl = document.querySelector(userNameSelector);
     this._userJobEl = document.querySelector(userDescriptionSelector);
-    this._profilePictureSelector = document.querySelector(
+    this._profilePictureSelectorEl = document.querySelector(
       profilePictureSelector
     );
   }
@@ -24,6 +24,6 @@ export default class UserInfo {
   }
 
   setUserProfilePicture(link) {
-    this._profilePictureSelector.src = link;
+    this._profilePictureSelectorEl.src = link;
   }
 }

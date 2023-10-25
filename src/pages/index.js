@@ -79,23 +79,6 @@ const api = new Api({
 });
 
 /* -------------------------------------------------------------------------- */
-/*                            Profile Picture Edit                            */
-/* -------------------------------------------------------------------------- */
-
-function loadInitialProfilePicture() {
-  api
-    .loadInitialProfileData()
-    .then((profileData) => {
-      profilePictureImage.src = profileData.avatar;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
-
-loadInitialProfilePicture();
-
-/* -------------------------------------------------------------------------- */
 /*                               Event Hanlders                               */
 /* -------------------------------------------------------------------------- */
 
@@ -107,23 +90,19 @@ function handleEditProfileSubmit(formData) {
       userInfo.setUserInfo(data);
       modalEditForm.close();
     })
-    .catch((error) => {
-      console.error(error);
-    })
+    .catch(console.error)
+
     .finally(() => modalEditForm.setSubmitText(false));
 }
 
 function handleEditProfilePictureSubmit(data) {
-  profilePictureImage.src = data.url;
-  editProfilePicture.setSubmitText(true);
   api
     .updateProfilePicture(data.url)
     .then(() => {
+      profilePictureImage.src = data.url;
       editProfilePicture.close();
     })
-    .catch((err) => {
-      console.error(err);
-    });
+    .catch(console.error);
 }
 
 function handleImageClick(data) {
@@ -140,9 +119,7 @@ function handleRemoveCard(data) {
         removeCardModal.close();
         data._handleDeleteButton();
       })
-      .catch((err) => {
-        console.error(err);
-      })
+      .catch(console.error)
       .finally(() => removeCardModal.setSubmitText(false));
   });
 }
@@ -162,10 +139,9 @@ function handleAddCardSubmit(data) {
       .addNewCard(newCard)
       .then((newCardData) => {
         renderCard(newCardData);
+        addCardImageModal.close();
       })
-      .catch((error) => {
-        console.error(error);
-      })
+      .catch(console.error)
       .finally(() => addCardImageModal.setSubmitText(false));
   }
 }
@@ -179,9 +155,7 @@ function handleCardLike(data) {
     .then((updatedData) => {
       data.setLikes(updatedData.isLiked);
     })
-    .catch((err) => {
-      console.error(err);
-    });
+    .catch(console.error);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -224,12 +198,12 @@ profileEditButton.addEventListener("click", () => {
 });
 
 addNewCardButton.addEventListener("click", () => {
-  addFormValidator._disableSubmitButton();
+  addFormValidator.disableSubmitButton();
   addCardImageModal.open();
 });
 
 editProfileImageButton.addEventListener("click", () => {
-  editProfilePicFormValidator._disableSubmitButton();
+  editProfilePicFormValidator.disableSubmitButton();
   editProfilePicture.open();
 });
 
@@ -272,6 +246,4 @@ Promise.all([api.loadInitialProfileData(), api.getInitialCards()])
     );
     section.renderItems();
   })
-  .catch((error) => {
-    console.error(error);
-  });
+  .catch(console.error);

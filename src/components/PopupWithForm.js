@@ -30,9 +30,9 @@ export default class PopupWithForm extends Popup {
     });
   }
 
-  setSubmitText(submit) {
-    if (submit) {
-      this._submitButton.textContent = "Saving...";
+  setSubmitText(isLoading, loadingText = "Saving...") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
     } else {
       this._submitButton.textContent = this._submitButtonText;
     }
@@ -42,7 +42,6 @@ export default class PopupWithForm extends Popup {
     this._modalForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this.close();
     });
     super.setEventListeners();
   }
