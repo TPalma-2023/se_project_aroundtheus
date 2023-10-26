@@ -99,10 +99,12 @@ function handleEditProfilePictureSubmit(data) {
   editProfilePicture.setSubmitText(true);
   api
     .updateProfilePicture(data.url)
-    .then(userInfo.setUserProfilePicture(data.url))
+    .then(() => {
+      userInfo.setUserProfilePicture(data.url);
+      editProfilePicture.close();
+    })
     .catch(console.error)
     .finally(() => {
-      editProfilePicture.close();
       editProfilePicture.setSubmitText(false);
     });
 }
