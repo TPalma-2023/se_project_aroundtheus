@@ -133,6 +133,25 @@
   padding-top: 10px;
 }
 
+.modal__container_type_delete {
+  width: 100%;
+  max-height: 180px;
+}
+
+.modal__heading_delete-modal {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.modal__container_profile-picture {
+  width: 100%;
+  max-height: 272px;
+}
+
+.modal__heading_profile-picture {
+  margin-top: 0px;
+}
+
 @media screen and (max-width: 620px) {
   .modal {
     margin: auto;
